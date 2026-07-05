@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calc">
+    <div class="calc__device">
+      <!-- 계산화면 -->
+      <section class="calc__display" aria-label="계산 결과 화면">
+        <p class="calc__expression">700&nbsp;+&nbsp;10</p>
+        <p class="calc__result">710<span class="calc__result-decimal">.00</span></p>
+      </section>
+
+      <!-- 동글이 버튼 키패드 -->
+      <section class="calc__keys" aria-label="계산기 키패드">
+        <button class="key" type="button">MRC</button>
+        <button class="key" type="button">M&minus;</button>
+        <button class="key" type="button">M+</button>
+        <button class="key" type="button">&radic;</button>
+        <button class="key" type="button">%</button>
+
+        <button class="key" type="button">&rarr;</button>
+        <button class="key" type="button">7</button>
+        <button class="key" type="button">8</button>
+        <button class="key" type="button">9</button>
+        <button class="key" type="button">&divide;</button>
+
+        <button class="key" type="button">CE</button>
+        <button class="key" type="button">4</button>
+        <button class="key" type="button">5</button>
+        <button class="key" type="button">6</button>
+        <button class="key" type="button">&times;</button>
+
+        <button class="key" type="button">AC</button>
+        <button class="key" type="button">1</button>
+        <button class="key" type="button">2</button>
+        <button class="key" type="button">3</button>
+        <button class="key" type="button">&minus;</button>
+
+        <button class="key" type="button">0</button>
+        <button class="key" type="button">00</button>
+        <button class="key" type="button">.</button>
+        <button class="key" type="button">=</button>
+        <button class="key" type="button">+</button>
+      </section>
+    </div>
+
+    <footer class="calc__caption">2026 직무부트캠프 2주차 - 계산기</footer>
+  </main>
+</body>
+</html>

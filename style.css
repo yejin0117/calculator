@@ -55,9 +55,11 @@ body {
   padding: 18px 18px 14px;
   position: relative;
   z-index: 1;
+  min-height: 78px;
 }
 .calc__expression {
   margin: 0 0 4px;
+  min-height: 16px;
   text-align: right;
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
@@ -71,10 +73,7 @@ body {
   font-weight: 600;
   color: var(--screen-text);
   line-height: 1.1;
-}
-.calc__result-decimal {
-  font-size: 20px;
-  color: var(--screen-muted);
+  overflow-wrap: break-word;
 }
 .calc__keys {
   display: grid;
@@ -103,26 +102,111 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: inset 0 -4px 0 rgba(74, 50, 38, 0.12), 0 3px 6px rgba(74, 50, 38, 0.12);
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, opacity 0.15s ease;
 }
 .key:active {
   transform: scale(0.94);
 }
-.key:nth-child(n+1):nth-child(-n+5) {
+.key:nth-child(n + 1):nth-child(-n + 5) {
   background: var(--row-1);
 }
-.key:nth-child(n+6):nth-child(-n+10) {
+.key:nth-child(n + 6):nth-child(-n + 10) {
   background: var(--row-2);
 }
-.key:nth-child(n+11):nth-child(-n+15) {
+.key:nth-child(n + 11):nth-child(-n + 15) {
   background: var(--row-3);
 }
-.key:nth-child(n+16):nth-child(-n+20) {
+.key:nth-child(n + 16):nth-child(-n + 20) {
   background: var(--row-4);
 }
-.key:nth-child(n+21):nth-child(-n+25) {
+.key:nth-child(n + 21):nth-child(-n + 25) {
   background: var(--row-5);
   color: var(--key-text-light);
+}
+
+.key--inactive {
+  opacity: 0.45;
+  cursor: default;
+}
+.key--inactive:active {
+  transform: none;
+}
+
+.key--equals {
+  box-shadow: inset 0 -4px 0 rgba(74, 50, 38, 0.2), 0 4px 10px rgba(74, 50, 38, 0.25);
+  font-size: 16px;
+}
+
+.calc__history {
+  border-top: 1px dashed var(--body-edge);
+  padding-top: 10px;
+}
+
+.calc__history-toggle {
+  width: 100%;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc__history-arrow {
+  font-size: 11px;
+  color: var(--screen-muted);
+}
+
+.calc__history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.calc__history-list.is-open {
+  max-height: 160px;
+  overflow-y: auto;
+  margin-top: 6px;
+}
+
+.calc__history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--body-edge);
+}
+
+.calc__history-item:last-child {
+  border-bottom: none;
+}
+
+.calc__history-expr {
+  color: var(--screen-muted);
+}
+
+.calc__history-result {
+  font-weight: 600;
+}
+
+.calc__history-empty {
+  padding: 8px 4px;
+  font-size: 12px;
+  color: var(--screen-muted);
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
 }
 
 @media (min-width: 768px) {
